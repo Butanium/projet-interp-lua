@@ -3,7 +3,7 @@ a = 18
 function f()
     local a
     a = 1;
-    res = function ()
+    res = function()
         a = a + 1;
         return a
     end
@@ -19,7 +19,6 @@ print(f1(), f1(), f2(), f1())
 -- Et cela ne modifie pas l'environnement global
 print(a)
 
-
 -- On a le même comportement si tout ceci est effectué dans un environnement
 -- local. En particulier, la valeur dans l'environnement de la fonction
 -- appelante n'est pas modifiée.
@@ -29,7 +28,7 @@ function main()
     function f()
         local a
         a = 1
-        res = function ()
+        res = function()
             a = a + 1;
             return a
         end

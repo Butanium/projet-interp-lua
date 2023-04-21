@@ -1,9 +1,9 @@
 use self::{
     env::{Env, GEnv, LEnv},
-    value::{Value, Function},
+    value::{Function, Value},
 };
 use crate::parser::ast::*;
-use std::{rc::Rc, collections::HashMap};
+use std::{collections::HashMap, rc::Rc};
 
 mod env;
 pub mod value;

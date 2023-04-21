@@ -11,10 +11,10 @@ x = {}
 z = {}
 y = 0;
 
-function f() print(x.a); x.a = 1; return x end
-function g() print(x.a); x.a = 2; return "a" end
-function h() print(x.a); x.a = 3; return 12 end
+function f() print("tab", x.a); x.a = 1; return x end
+function g() print("key", x.a); x.a = 2; return "a" end
+function h() print("val", x.a); x.a = 3; return 12 end
 
-f()[g()] = 12
+f()[g()] = h()
 print(x.a)
 

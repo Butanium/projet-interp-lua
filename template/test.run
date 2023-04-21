@@ -1,0 +1,1464 @@
+make -C lua all
+make[1]: Entering directory '/home/butanium/ens/prog2/projet/template/lua'
+make[2]: Entering directory '/home/butanium/ens/prog2/projet/template/lua/src'
+Guessing Linux
+make[3]: Entering directory '/home/butanium/ens/prog2/projet/template/lua/src'
+make all SYSCFLAGS="-DLUA_USE_LINUX" SYSLIBS="-Wl,-E -ldl"
+make[4]: Entering directory '/home/butanium/ens/prog2/projet/template/lua/src'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/home/butanium/ens/prog2/projet/template/lua/src'
+make[3]: Leaving directory '/home/butanium/ens/prog2/projet/template/lua/src'
+make[2]: Leaving directory '/home/butanium/ens/prog2/projet/template/lua/src'
+make[1]: Leaving directory '/home/butanium/ens/prog2/projet/template/lua'
+cd ocaml; dune build
+cd rust; cargo build --release
+ocaml -I +unix unix.cma tests/runtests.ml tests/
+============== Running interpreter written in OCaml  ==============
+Testing tests/01_print.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+hello	42	true
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp/interp.ml", line 16, characters 57-63: Assertion failed
+
+Testing tests/02_globals.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+nil
+abc
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp/interp.ml", line 16, characters 57-63: Assertion failed
+
+Testing tests/03_not.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+false
+true
+false
+false
+false
+true
+false
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp/interp.ml", line 16, characters 57-63: Assertion failed
+
+Testing tests/04_basic_expr.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+3
+42
+5
+-3
+true
+true
+false
+true
+true
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp/interp.ml", line 16, characters 57-63: Assertion failed
+
+Testing tests/05_basic_statements.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+2	4
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp/interp.ml", line 16, characters 57-63: Assertion failed
+
+Testing tests/06_conditions.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+42
+negative
+216
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp/interp.ml", line 16, characters 57-63: Assertion failed
+
+Testing tests/07_basic_return.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp/interp.ml", line 16, characters 57-63: Assertion failed
+
+Testing tests/08_basic_while.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp/interp.ml", line 16, characters 57-63: Assertion failed
+
+Testing tests/09_basic_functions.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+hello
+hello
+nil
+42
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp/interp.ml", line 16, characters 57-63: Assertion failed
+
+Testing tests/10_basic_functions_arguments.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+-----
+3
+------------
+42
+12
+------------
+13
+42
+------------
+43
+42
+------------
+0	1
+0	1
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp/interp.ml", line 16, characters 57-63: Assertion failed
+
+Testing tests/11_bool_ops.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+false
+false
+false
+true
+nil
+false
+nil
+nil
+2
+0
+false
+true
+true
+true
+false
+nil
+12
+13
+0
+42
+ok
+ok
+ok
+1	true	2
+2	true	3
+3	1	3
+3	nil	3
+3	true	4
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp/interp.ml", line 16, characters 57-63: Assertion failed
+
+Testing tests/12_args_len_mismatch.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+41	nil	nil
+---
+42	43	44
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp/interp.ml", line 16, characters 57-63: Assertion failed
+
+Testing tests/13_arg_rename.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+2
+nil
+2
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp/interp.ml", line 16, characters 57-63: Assertion failed
+
+Testing tests/14_functions_in_functions.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+1
+2
+-------------
+1	2
+2	4
+-------------
+2	3
+3	5
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp/interp.ml", line 16, characters 57-63: Assertion failed
+
+Testing tests/15_scopes.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+3	4	3	5
+18
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp/interp.ml", line 16, characters 57-63: Assertion failed
+
+Testing tests/16_recursion.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp/interp.ml", line 16, characters 57-63: Assertion failed
+
+Testing tests/17_first_class_functions.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+12	21	31
+42
+42
+---------------
+1
+2
+3
+1
+2
+---------------
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp/interp.ml", line 16, characters 57-63: Assertion failed
+
+Testing tests/18_tables_aliases.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+0	1
+1	1
+2	1
+2	1
+2	42
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp/interp.ml", line 16, characters 57-63: Assertion failed
+
+Testing tests/19_tables.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+nil
+abc
+nil
+42	18
+42	18
+42	18	1
+42	18	1
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp/interp.ml", line 16, characters 57-63: Assertion failed
+
+Testing tests/20_assign_eval_order.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+1	1
+nil
+1
+12
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp/interp.ml", line 16, characters 57-63: Assertion failed
+
+Testing tests/21_err_double_app.lua... [1;31m[ERROR][0m
+Errors while running the reference interpreter and the program.
+- Running 'lua' on the program produces:
+42
+/home/butanium/ens/prog2/projet/template/lua/src/lua: tests/21_err_double_app.lua:1: attempt to call a nil value
+stack traceback:
+	tests/21_err_double_app.lua:1: in main chunk
+	[C]: in ?
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp/interp.ml", line 16, characters 57-63: Assertion failed
+
+Testing tests/22_ops.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+1
+2
+4
+8
+16
+32
+64
+128
+256
+512
+1024
+2048
+4096
+8192
+16384
+32768
+65536
+131072
+262144
+524288
+1048576
+2097152
+4194304
+8388608
+16777216
+33554432
+67108864
+134217728
+268435456
+536870912
+1073741824
+2147483648
+4294967296
+8589934592
+17179869184
+34359738368
+68719476736
+137438953472
+274877906944
+549755813888
+1099511627776
+2199023255552
+4398046511104
+8796093022208
+17592186044416
+35184372088832
+70368744177664
+140737488355328
+281474976710656
+562949953421312
+1125899906842624
+2251799813685248
+4503599627370496
+9007199254740992
+18014398509481984
+36028797018963968
+72057594037927936
+144115188075855872
+288230376151711744
+576460752303423488
+1152921504606846976
+2305843009213693952
+4611686018427387904
+-9223372036854775808
+0
+0.01
+1.02
+3.04
+7.08
+15.16
+31.32
+63.64
+128.28
+257.56
+516.12
+1033.24
+2067.48
+4135.96
+8272.92
+16546.84
+33094.68
+66190.36
+132381.72
+264764.44
+529529.88
+1059060.76
+2118122.52
+4236246.04
+8472493.08
+16944987.16
+33889975.32
+67779951.64
+135559904.28
+271119809.56
+542239620.12
+1084479241.24
+2168958483.48
+4337916967.96
+8675833936.92
+17351667874.84
+34703335750.68
+69406671502.36
+138813343005.72
+277626686012.44
+555253372025.88
+2.0
+1.0
+0.0
+2.0
+1.0
+0.0
+true
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp/interp.ml", line 16, characters 57-63: Assertion failed
+
+Testing tests/23_curry.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+728
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp/interp.ml", line 16, characters 57-63: Assertion failed
+
+Testing tests/24_table.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+a	nil	c
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp/interp.ml", line 16, characters 57-63: Assertion failed
+
+
+============== Running interpreter written in Rust ==============
+Testing tests/01_print.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+hello	42	true
+
+- Running the interpreter on the program produces:
+thread 'main' panicked at 'not implemented', src/interp/mod.rs:14:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+Testing tests/02_globals.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+nil
+abc
+
+- Running the interpreter on the program produces:
+thread 'main' panicked at 'not implemented', src/interp/mod.rs:14:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+Testing tests/03_not.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+false
+true
+false
+false
+false
+true
+false
+
+- Running the interpreter on the program produces:
+thread 'main' panicked at 'not implemented', src/interp/mod.rs:14:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+Testing tests/04_basic_expr.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+3
+42
+5
+-3
+true
+true
+false
+true
+true
+
+- Running the interpreter on the program produces:
+thread 'main' panicked at 'not implemented', src/interp/mod.rs:14:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+Testing tests/05_basic_statements.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+2	4
+
+- Running the interpreter on the program produces:
+thread 'main' panicked at 'not implemented', src/interp/mod.rs:14:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+Testing tests/06_conditions.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+42
+negative
+216
+
+- Running the interpreter on the program produces:
+thread 'main' panicked at 'not implemented', src/interp/mod.rs:14:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+Testing tests/07_basic_return.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+
+- Running the interpreter on the program produces:
+thread 'main' panicked at 'not implemented', src/interp/mod.rs:14:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+Testing tests/08_basic_while.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+- Running the interpreter on the program produces:
+thread 'main' panicked at 'not implemented', src/interp/mod.rs:14:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+Testing tests/09_basic_functions.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+hello
+hello
+nil
+42
+
+- Running the interpreter on the program produces:
+thread 'main' panicked at 'not implemented', src/interp/mod.rs:14:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+Testing tests/10_basic_functions_arguments.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+-----
+3
+------------
+42
+12
+------------
+13
+42
+------------
+43
+42
+------------
+0	1
+0	1
+
+- Running the interpreter on the program produces:
+thread 'main' panicked at 'not implemented', src/interp/mod.rs:14:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+Testing tests/11_bool_ops.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+false
+false
+false
+true
+nil
+false
+nil
+nil
+2
+0
+false
+true
+true
+true
+false
+nil
+12
+13
+0
+42
+ok
+ok
+ok
+1	true	2
+2	true	3
+3	1	3
+3	nil	3
+3	true	4
+
+- Running the interpreter on the program produces:
+thread 'main' panicked at 'not implemented', src/interp/mod.rs:14:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+Testing tests/12_args_len_mismatch.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+41	nil	nil
+---
+42	43	44
+
+- Running the interpreter on the program produces:
+thread 'main' panicked at 'not implemented', src/interp/mod.rs:14:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+Testing tests/13_arg_rename.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+2
+nil
+2
+
+- Running the interpreter on the program produces:
+thread 'main' panicked at 'not implemented', src/interp/mod.rs:14:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+Testing tests/14_functions_in_functions.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+1
+2
+-------------
+1	2
+2	4
+-------------
+2	3
+3	5
+
+- Running the interpreter on the program produces:
+thread 'main' panicked at 'not implemented', src/interp/mod.rs:14:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+Testing tests/15_scopes.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+3	4	3	5
+18
+
+- Running the interpreter on the program produces:
+thread 'main' panicked at 'not implemented', src/interp/mod.rs:14:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+Testing tests/16_recursion.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+
+- Running the interpreter on the program produces:
+thread 'main' panicked at 'not implemented', src/interp/mod.rs:14:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+Testing tests/17_first_class_functions.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+12	21	31
+42
+42
+---------------
+1
+2
+3
+1
+2
+---------------
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+- Running the interpreter on the program produces:
+thread 'main' panicked at 'not implemented', src/interp/mod.rs:14:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+Testing tests/18_tables_aliases.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+0	1
+1	1
+2	1
+2	1
+2	42
+
+- Running the interpreter on the program produces:
+thread 'main' panicked at 'not implemented', src/interp/mod.rs:14:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+Testing tests/19_tables.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+nil
+abc
+nil
+42	18
+42	18
+42	18	1
+42	18	1
+
+- Running the interpreter on the program produces:
+thread 'main' panicked at 'not implemented', src/interp/mod.rs:14:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+Testing tests/20_assign_eval_order.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+1	1
+nil
+1
+12
+
+- Running the interpreter on the program produces:
+thread 'main' panicked at 'not implemented', src/interp/mod.rs:14:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+Testing tests/21_err_double_app.lua... [1;31m[ERROR][0m
+Errors while running the reference interpreter and the program.
+- Running 'lua' on the program produces:
+42
+/home/butanium/ens/prog2/projet/template/lua/src/lua: tests/21_err_double_app.lua:1: attempt to call a nil value
+stack traceback:
+	tests/21_err_double_app.lua:1: in main chunk
+	[C]: in ?
+
+- Running the interpreter on the program produces:
+thread 'main' panicked at 'not implemented', src/interp/mod.rs:14:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+Testing tests/22_ops.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+1
+2
+4
+8
+16
+32
+64
+128
+256
+512
+1024
+2048
+4096
+8192
+16384
+32768
+65536
+131072
+262144
+524288
+1048576
+2097152
+4194304
+8388608
+16777216
+33554432
+67108864
+134217728
+268435456
+536870912
+1073741824
+2147483648
+4294967296
+8589934592
+17179869184
+34359738368
+68719476736
+137438953472
+274877906944
+549755813888
+1099511627776
+2199023255552
+4398046511104
+8796093022208
+17592186044416
+35184372088832
+70368744177664
+140737488355328
+281474976710656
+562949953421312
+1125899906842624
+2251799813685248
+4503599627370496
+9007199254740992
+18014398509481984
+36028797018963968
+72057594037927936
+144115188075855872
+288230376151711744
+576460752303423488
+1152921504606846976
+2305843009213693952
+4611686018427387904
+-9223372036854775808
+0
+0.01
+1.02
+3.04
+7.08
+15.16
+31.32
+63.64
+128.28
+257.56
+516.12
+1033.24
+2067.48
+4135.96
+8272.92
+16546.84
+33094.68
+66190.36
+132381.72
+264764.44
+529529.88
+1059060.76
+2118122.52
+4236246.04
+8472493.08
+16944987.16
+33889975.32
+67779951.64
+135559904.28
+271119809.56
+542239620.12
+1084479241.24
+2168958483.48
+4337916967.96
+8675833936.92
+17351667874.84
+34703335750.68
+69406671502.36
+138813343005.72
+277626686012.44
+555253372025.88
+2.0
+1.0
+0.0
+2.0
+1.0
+0.0
+true
+
+- Running the interpreter on the program produces:
+thread 'main' panicked at 'not implemented', src/interp/mod.rs:14:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+Testing tests/23_curry.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+728
+
+- Running the interpreter on the program produces:
+thread 'main' panicked at 'not implemented', src/interp/mod.rs:14:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+Testing tests/24_table.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+a	nil	c
+
+- Running the interpreter on the program produces:
+thread 'main' panicked at 'not implemented', src/interp/mod.rs:14:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+============== Running interpreter written in OCaml (CPS variant) ==============
+Testing tests/01_print.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+hello	42	true
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp-cps/interp.ml", line 29, characters 2-8: Assertion failed
+
+Testing tests/02_globals.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+nil
+abc
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp-cps/interp.ml", line 29, characters 2-8: Assertion failed
+
+Testing tests/03_not.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+false
+true
+false
+false
+false
+true
+false
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp-cps/interp.ml", line 29, characters 2-8: Assertion failed
+
+Testing tests/04_basic_expr.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+3
+42
+5
+-3
+true
+true
+false
+true
+true
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp-cps/interp.ml", line 29, characters 2-8: Assertion failed
+
+Testing tests/05_basic_statements.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+2	4
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp-cps/interp.ml", line 29, characters 2-8: Assertion failed
+
+Testing tests/06_conditions.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+42
+negative
+216
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp-cps/interp.ml", line 29, characters 2-8: Assertion failed
+
+Testing tests/07_basic_return.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp-cps/interp.ml", line 29, characters 2-8: Assertion failed
+
+Testing tests/08_basic_while.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp-cps/interp.ml", line 29, characters 2-8: Assertion failed
+
+Testing tests/09_basic_functions.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+hello
+hello
+nil
+42
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp-cps/interp.ml", line 29, characters 2-8: Assertion failed
+
+Testing tests/10_basic_functions_arguments.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+-----
+3
+------------
+42
+12
+------------
+13
+42
+------------
+43
+42
+------------
+0	1
+0	1
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp-cps/interp.ml", line 29, characters 2-8: Assertion failed
+
+Testing tests/11_bool_ops.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+false
+false
+false
+true
+nil
+false
+nil
+nil
+2
+0
+false
+true
+true
+true
+false
+nil
+12
+13
+0
+42
+ok
+ok
+ok
+1	true	2
+2	true	3
+3	1	3
+3	nil	3
+3	true	4
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp-cps/interp.ml", line 29, characters 2-8: Assertion failed
+
+Testing tests/12_args_len_mismatch.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+41	nil	nil
+---
+42	43	44
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp-cps/interp.ml", line 29, characters 2-8: Assertion failed
+
+Testing tests/13_arg_rename.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+2
+nil
+2
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp-cps/interp.ml", line 29, characters 2-8: Assertion failed
+
+Testing tests/14_functions_in_functions.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+1
+2
+-------------
+1	2
+2	4
+-------------
+2	3
+3	5
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp-cps/interp.ml", line 29, characters 2-8: Assertion failed
+
+Testing tests/15_scopes.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+3	4	3	5
+18
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp-cps/interp.ml", line 29, characters 2-8: Assertion failed
+
+Testing tests/16_recursion.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp-cps/interp.ml", line 29, characters 2-8: Assertion failed
+
+Testing tests/17_first_class_functions.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+12	21	31
+42
+42
+---------------
+1
+2
+3
+1
+2
+---------------
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp-cps/interp.ml", line 29, characters 2-8: Assertion failed
+
+Testing tests/18_tables_aliases.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+0	1
+1	1
+2	1
+2	1
+2	42
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp-cps/interp.ml", line 29, characters 2-8: Assertion failed
+
+Testing tests/19_tables.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+nil
+abc
+nil
+42	18
+42	18
+42	18	1
+42	18	1
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp-cps/interp.ml", line 29, characters 2-8: Assertion failed
+
+Testing tests/20_assign_eval_order.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+1	1
+nil
+1
+12
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp-cps/interp.ml", line 29, characters 2-8: Assertion failed
+
+Testing tests/21_err_double_app.lua... [1;31m[ERROR][0m
+Errors while running the reference interpreter and the program.
+- Running 'lua' on the program produces:
+42
+/home/butanium/ens/prog2/projet/template/lua/src/lua: tests/21_err_double_app.lua:1: attempt to call a nil value
+stack traceback:
+	tests/21_err_double_app.lua:1: in main chunk
+	[C]: in ?
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp-cps/interp.ml", line 29, characters 2-8: Assertion failed
+
+Testing tests/22_ops.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+1
+2
+4
+8
+16
+32
+64
+128
+256
+512
+1024
+2048
+4096
+8192
+16384
+32768
+65536
+131072
+262144
+524288
+1048576
+2097152
+4194304
+8388608
+16777216
+33554432
+67108864
+134217728
+268435456
+536870912
+1073741824
+2147483648
+4294967296
+8589934592
+17179869184
+34359738368
+68719476736
+137438953472
+274877906944
+549755813888
+1099511627776
+2199023255552
+4398046511104
+8796093022208
+17592186044416
+35184372088832
+70368744177664
+140737488355328
+281474976710656
+562949953421312
+1125899906842624
+2251799813685248
+4503599627370496
+9007199254740992
+18014398509481984
+36028797018963968
+72057594037927936
+144115188075855872
+288230376151711744
+576460752303423488
+1152921504606846976
+2305843009213693952
+4611686018427387904
+-9223372036854775808
+0
+0.01
+1.02
+3.04
+7.08
+15.16
+31.32
+63.64
+128.28
+257.56
+516.12
+1033.24
+2067.48
+4135.96
+8272.92
+16546.84
+33094.68
+66190.36
+132381.72
+264764.44
+529529.88
+1059060.76
+2118122.52
+4236246.04
+8472493.08
+16944987.16
+33889975.32
+67779951.64
+135559904.28
+271119809.56
+542239620.12
+1084479241.24
+2168958483.48
+4337916967.96
+8675833936.92
+17351667874.84
+34703335750.68
+69406671502.36
+138813343005.72
+277626686012.44
+555253372025.88
+2.0
+1.0
+0.0
+2.0
+1.0
+0.0
+true
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp-cps/interp.ml", line 29, characters 2-8: Assertion failed
+
+Testing tests/23_curry.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+728
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp-cps/interp.ml", line 29, characters 2-8: Assertion failed
+
+Testing tests/24_table.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+a	nil	c
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp-cps/interp.ml", line 29, characters 2-8: Assertion failed
+
+Testing tests/40_coroutine_iter.co.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+1
+2
+3
+4
+5
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp-cps/interp.ml", line 29, characters 2-8: Assertion failed
+
+Testing tests/41_coroutine_status.co.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+suspended
+a
+suspended
+running
+suspended
+c
+dead
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp-cps/interp.ml", line 29, characters 2-8: Assertion failed
+
+Testing tests/42_corout_values.co.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+22
+46
+dead
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp-cps/interp.ml", line 29, characters 2-8: Assertion failed
+
+Testing tests/43_iterators.co.lua... [1;31m[ERROR][0m
+Error while running the program.
+- Running 'lua' on the program produces:
+--- 0..10 ---
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+--- 10..0 ---
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+--- 0..10, 10..0 interleaved ---
+0	10
+1	9
+2	8
+3	7
+4	6
+5	5
+6	4
+7	3
+8	2
+9	1
+10	0
+
+- Running the interpreter on the program produces:
+Fatal error: exception File "interp-cps/interp.ml", line 29, characters 2-8: Assertion failed
+

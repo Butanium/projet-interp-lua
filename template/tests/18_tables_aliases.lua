@@ -2,13 +2,15 @@
 --   si plusieurs morceaux de programme ont accès à la même valeur "table",
 --   modifier le contenu d'une table via n'importe quel morceau de programme
 --   modifie la table de manière visible par tout les endroits du programme
-
-t = { a = 0; b = 1 }
+t = {
+    a = 0,
+    b = 1
+}
 print(t.a, t.b)
 t2 = t
 
 function incra(u)
-  u.a = u.a + 1
+    u.a = u.a + 1
 end
 
 incra(t)

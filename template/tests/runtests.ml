@@ -91,7 +91,8 @@ let do_tests runner testfiles =
             (ensure_newline reference_output)
             (ensure_newline reference_err);
           Printf.printf "- Running the interpreter on the program produces:\n";
-          Printf.printf "%s%s\n" (ensure_newline output) (ensure_newline err))
+          Printf.printf "%s%s\n" (ensure_newline output) (ensure_newline err);
+          failwith "Test failed")
     testfiles
 
 let () =
