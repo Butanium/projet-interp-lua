@@ -23,7 +23,6 @@ pub struct Env<'ast, 'genv> {
     // cette nouvelle portée afin de créer le nouvel environnement.
     pub globals: &'genv mut GEnv<'ast>,
 }
-
 // Les portées sont représentées par des tables de hachage utilisant des
 // emprunts d'identifiants de l'AST comme clefs et RefCell<Value<'ast> comme
 // valeur. Le type RefCell<Value<'ast>> permet de modifier les variables dans un
@@ -35,7 +34,7 @@ pub enum LEnv<'ast> {
     Nil,
     Cons(Scope<'ast>, Rc<LEnv<'ast>>),
 }
-
+ket = dazdaz in dzadza
 // Un environnement global contient simplement une table de hachage pour les
 // valeurs des variables globales. On n'utilise pas RefCell ici, car on a
 // toujours accès de manière exclusive à l'environnement global, ce qui permet
