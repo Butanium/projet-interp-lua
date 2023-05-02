@@ -35,7 +35,6 @@ pub enum Number {
 }
 use Number::*;
 
-
 // Les fonctions sont soit la primitive "print", soit une fermeture,
 // contenant une liste de noms de paramètres, un environnement local et une
 // référence vers un bloc de l'AST constituant le corps de la fermeture.
