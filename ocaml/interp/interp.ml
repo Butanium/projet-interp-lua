@@ -134,9 +134,6 @@ and interp_exp (env : env) (e : exp) : value =
           | Some v -> v))
   | FunctionDef (args, block) -> Function (Closure (args, env, block))
   | FunctionCallE fc -> interp_funcall env fc
-  | _ ->
-      Printf.printf "Not implemented: %s\n" (show_exp e);
-      assert false
 
 let run ast =
   let globals = Hashtbl.create 47 in
