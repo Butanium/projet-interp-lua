@@ -107,8 +107,8 @@ and interp_funcall (env : env) (fc : functioncall) (k : value -> unit)
     (fun args ->
       interp_exp env f
         (fun f ->
-          let rec interp_f f co =
-            match Value.as_function f with
+          let rec interp_f f co args k =
+            match f with
             | Print ->
                 List.map Value.to_string args
                 |> String.concat "\t" |> print_endline;
@@ -154,17 +154,22 @@ and interp_funcall (env : env) (fc : functioncall) (k : value -> unit)
             | CoroutCreate -> (
                 match args with
                 | f :: _ ->
-                    let c =  { stat = Dead } in
-                    c.stat <-
-                      Suspended
-                        (fun (_ : Value.t) (* no yield: ignore *) ->
-                          interp_f f c;
-                          c.stat <- Dead);
+                    let f = as_function f in
+                    let c = { stat = Dead } in
+                    let k_cor v =
+                      interp_f f c [ v ] (fun ret_val ->
+                          match c.stat with
+                          | Running k ->
+                              c.stat <- Dead;
+                              k ret_val
+                          | _ -> assert false (* not reachable *))
+                    in
+                    c.stat <- Suspended k_cor;
                     k (Coroutine c)
                 | _ ->
                     failwith "coroutine.create requires a function as argument")
           in
-          interp_f f co)
+          interp_f (as_function f) co args k)
         co)
     co
 (* Interprète une liste d'expressions *)
