@@ -10,7 +10,7 @@ end
 co = coroutine.create (f)
 
 coroutine.mini_resume(co)
--- coroutine.mini_resume(co)
--- coroutine.mini_resume(co)
--- coroutine.mini_resume(co)
--- coroutine.mini_resume(co)
+coroutine.mini_resume(co)
+coroutine.mini_resume(co)
+coroutine.mini_resume(co)
+coroutine.mini_resume(co)

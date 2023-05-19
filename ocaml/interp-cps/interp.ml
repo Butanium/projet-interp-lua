@@ -154,14 +154,13 @@ and interp_funcall (env : env) (fc : functioncall) (k : value -> unit)
             | CoroutCreate -> (
                 match args with
                 | f :: _ ->
-                    k
-                      (Coroutine
-                         {
-                           stat =
-                             Suspended
-                               (fun (_ : Value.t) (* no yield: ignore *) ->
-                                 interp_f f co);
-                         })
+                    let c =  { stat = Dead } in
+                    c.stat <-
+                      Suspended
+                        (fun (_ : Value.t) (* no yield: ignore *) ->
+                          interp_f f c;
+                          c.stat <- Dead);
+                    k (Coroutine c)
                 | _ ->
                     failwith "coroutine.create requires a function as argument")
           in
