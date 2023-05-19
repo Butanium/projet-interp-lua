@@ -33,8 +33,8 @@ and coroutine = {
 
 and coroutine_status =
   | Dead
-  | Running of (t -> unit)
-  | Suspended of (t -> unit)
+  | Running of (t -> unit) (* k: continuation après l'exec *)
+  | Suspended of (t -> unit) (* k: continuation au moment de resume *)
 
 let to_string = function
   | Nil -> "nil"
