@@ -5,15 +5,6 @@ type env = Value.env
 
 open Value
 
-exception RunTimeError of string
-
-(* let type_mismatch ?(context = "") expected got =
-   raise
-   @@ RunTimeError
-        (Printf.sprintf "%sExpected %s, got %s"
-           (if context <> "" then "Error in " ^ context else "")
-           expected got) *)
-
 (* Fonction auxiliaire pour créer une table d'environnement à partir de noms et
    valeurs associées. *)
 let create_scope (names : string list) (values : value list) :
@@ -113,6 +104,7 @@ and interp_exp (env : env) (e : exp) : value =
       | Addition -> add v1 (v2 ())
       | Subtraction -> sub v1 (v2 ())
       | Multiplication -> mul v1 (v2 ())
+      | Modulo -> mod_ v1 (v2 ())
       | Equality -> Bool (equal v1 (v2 ()))
       | Inequality -> Bool (not (equal v1 (v2 ())))
       | Less -> Bool (lt v1 (v2 ()))

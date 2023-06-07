@@ -51,6 +51,8 @@ let as_table = function
   | Table t -> t
   | v -> failwith (to_string v ^ ": not a table")
 
+let as_int = function Int n -> n | v -> failwith (to_string v ^ ": not an int")
+
 let add v1 v2 =
   match (v1, v2) with
   | Int n1, Int n2 -> Int (Int64.add n1 n2)
@@ -70,6 +72,8 @@ let mul v1 v2 =
   match (v1, v2) with
   | Int n1, Int n2 -> Int (Int64.mul n1 n2)
   | _, _ -> Float (as_float v1 *. as_float v2)
+
+let mod_ v1 v2 = Int (Int64.rem (as_int v1) (as_int v2))
 
 let cmp_int_float n f =
   if Float.is_nan f then None
