@@ -57,6 +57,7 @@ and binop =
   | Addition (* + *)
   | Subtraction (* - *)
   | Multiplication (* * *)
+  | Modulo (* % *)
   (* relational operators *)
   | Equality (* == *)
   | Inequality (* ~= *)

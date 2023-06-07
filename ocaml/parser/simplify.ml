@@ -57,6 +57,7 @@ and simp_binop : Internalast.binop -> Ast.binop = function
   | Addition -> Addition
   | Subtraction -> Subtraction
   | Multiplication -> Multiplication
+  | Modulo -> Modulo
   | Equality -> Equality
   | Inequality -> Inequality
   | Less -> Less

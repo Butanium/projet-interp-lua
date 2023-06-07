@@ -224,6 +224,7 @@ and interp_exp (env : env) (e : exp) (k : value -> unit) (co : coroutine) : unit
               | Addition -> add v1 v2
               | Subtraction -> sub v1 v2
               | Multiplication -> mul v1 v2
+              | Modulo -> mod_ v1 v2
               | Equality -> Bool (equal v1 v2)
               | Inequality -> Bool (not (equal v1 v2))
               | Less -> Bool (lt v1 v2)

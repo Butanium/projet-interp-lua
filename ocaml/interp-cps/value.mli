@@ -78,6 +78,9 @@ val neg : t -> t
 (* Opération de multiplication. *)
 val mul : t -> t -> t
 
+(* Opération de reste de la division euclidienne. *)
+val mod_ : t -> t -> t
+
 (* Opération d'égalité. *)
 val equal : t -> t -> bool
 
