@@ -37,7 +37,40 @@ function prime_gen()
 end
 i = 0
 prime = prime_gen()
+print("---- 10 premiers nombres premiers ----")
 while i < 10 do
     print(prime())
+    i = i + 1
+end
+
+-- Générateur de nombres pseudo-aléatoires
+function iter_random()
+    return coroutine.create(function()
+        local n, a, c, m, x
+        n = 0
+        a = 16807
+        c = 0
+        m = 2147483648 - 1 -- 2^31 - 1
+        x = 1
+        while true do
+            x = (a * x + c) % m
+            coroutine.yield(x)
+        end
+    end)
+end
+
+function random_gen()
+    local co 
+    co = iter_random()
+    return function()
+        return coroutine.mini_resume(co)
+    end
+end
+
+i = 0
+random = random_gen()
+print("---- 20 nombres pseudo-aléatoires ----")
+while i < 20 do
+    print(random())
     i = i + 1
 end
