@@ -3,7 +3,7 @@ use self::{
     value::{Function, Value},
 };
 use crate::parser::ast::*;
-use std::{borrow::BorrowMut, cell::RefCell, collections::HashMap, rc::Rc};
+use std::{cell::RefCell, collections::HashMap, rc::Rc};
 
 mod env;
 pub mod value;
@@ -50,11 +50,11 @@ impl Stat_ {
                     body.interp(env);
                 }
             }
-            Stat_::If(cond, thenDo, elseDo) => {
+            Stat_::If(cond, then_do, else_do) => {
                 if cond.interp(env).as_bool() {
-                    thenDo.interp(env);
+                    then_do.interp(env);
                 } else {
-                    elseDo.interp(env);
+                    else_do.interp(env);
                 }
             }
         }

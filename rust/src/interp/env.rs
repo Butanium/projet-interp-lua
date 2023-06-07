@@ -71,9 +71,9 @@ impl<'ast> LEnv<'ast> {
         V: Iterator<Item = Value<'ast>>,
     {
         let mut hash = HashMap::new();
-        let mut iterValues = values.into_iter();
+        let mut iter_values = values.into_iter();
         for name in names {
-            match iterValues.next() {
+            match iter_values.next() {
                 None => {
                     hash.insert(name, RefCell::new(Value::Nil));
                 }
